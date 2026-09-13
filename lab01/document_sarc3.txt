@@ -1,0 +1,7 @@
+Sun Sep 13 18:37:03 2026
+
+1
+
+Acesta este un document PDF pentru testarea scriptului OCR.
+
+
