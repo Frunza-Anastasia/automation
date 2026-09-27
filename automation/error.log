@@ -1,0 +1,7 @@
+[2026-09-27 16:58:32] Parametrul 'from' este invalid: 'US'. Foloseste un cod de 3 litere mari, ex: USD.
+[2026-09-27 16:58:32] Parametrul 'date' este invalid: '05-01-2025'. Foloseste formatul YYYY-MM-DD, ex: 2025-01-05.
+[2026-09-27 16:58:32] API a returnat o eroare: The currency XXX is unknown
+[2026-09-27 16:58:33] API a returnat o eroare: Invalid API key
+[2026-09-27 16:58:33] Nu se poate realiza conexiunea la server (http://localhost:9999). Verifica daca serviciul ruleaza. Detalii: HTTPConnectionPool(host='localhost', port=9999): Max retries exceeded with url: /?from=USD&to=EUR&date=2025-01-05 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=9999): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-09-27 20:41:13] Cheia API lipseste. Seteaz-o cu variabila de mediu API_KEY sau cu parametrul --key.
+[2026-09-27 20:43:56] Nu se poate realiza conexiunea la server (http://localhost:8080). Verifica daca serviciul ruleaza. Detalii: HTTPConnectionPool(host='localhost', port=8080): Max retries exceeded with url: /?from=USD&to=EUR&date=2025-01-05 (Caused by NewConnectionError("HTTPConnection(host='localhost', port=8080): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
