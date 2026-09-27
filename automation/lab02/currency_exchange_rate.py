@@ -27,7 +27,6 @@ def is_valid_currency_code(code: str) -> bool:
 
 
 def is_valid_date(date_str: str) -> bool:
-    """Verifica daca data respecta formatul YYYY-MM-DD si este o data calendaristica valida."""
     if not DATE_REGEX.match(date_str):
         return False
     try:
@@ -38,7 +37,6 @@ def is_valid_date(date_str: str) -> bool:
 
 
 def parse_arguments(argv=None) -> argparse.Namespace:
-    """Defineste si citeste parametrii din linia de comanda."""
     parser = argparse.ArgumentParser(
         description="Obtine cursul de schimb valutar intre doua monede, la o data specificata."
     )
@@ -67,15 +65,7 @@ def parse_arguments(argv=None) -> argparse.Namespace:
 
 def fetch_exchange_rate(base_url: str, api_key: str, from_currency: str,
                          to_currency: str, date: str, timeout: int = 10) -> dict:
-    """
-    Trimite cererea catre API si intoarce dictionarul cu datele cursului valutar.
 
-    Ridica CurrencyApiError daca:
-        - nu se poate realiza conexiunea catre server;
-        - serverul raspunde cu o eroare HTTP;
-        - raspunsul nu este un JSON valid;
-        - campul "error" din raspuns nu este gol.
-    """
     url = f"{base_url}/"
     params = {"from": from_currency, "to": to_currency, "date": date}
     payload = {"key": api_key}
@@ -118,7 +108,6 @@ def fetch_exchange_rate(base_url: str, api_key: str, from_currency: str,
 # Salvare rezultat / erori
 
 def save_result_to_json(data: dict, from_currency: str, to_currency: str, date: str) -> Path:
-    """Salveaza rezultatul intr-un fisier JSON in directorul data/, la radacina proiectului."""
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
     file_name = f"{from_currency}_{to_currency}_{date}.json"
