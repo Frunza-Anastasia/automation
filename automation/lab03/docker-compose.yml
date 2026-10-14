@@ -1,0 +1,17 @@
+services:
+  cron:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: currency-cron:lab03
+    container_name: currency-cron
+    environment:
+      API_KEY: ${API_KEY:-EXAMPLE_API_KEY}
+      # The API from lab02prep runs on the host machine at port 8080
+      API_BASE_URL: ${API_BASE_URL:-http://host.docker.internal:8080}
+      TZ: Europe/Chisinau
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

@@ -1,0 +1,10 @@
+# Cron tasks for currency_exchange_rate.py
+# Format: minute hour day-of-month month day-of-week command
+# Note: in crontab the "%" character must be escaped as "\%".
+
+# 1. Daily at 06:00 - MDL -> EUR exchange rate for the previous day
+0 6 * * * cd /app && /usr/local/bin/python /app/lab03/currency_exchange_rate.py --from MDL --to EUR --date "$(date -d 'yesterday' +\%Y-\%m-\%d)" --base-url "$API_BASE_URL" >> /var/log/cron.log 2>&1
+
+# 2. Weekly on Friday at 17:00 - MDL -> USD exchange rate for the previous week
+0 17 * * 5 cd /app && /usr/local/bin/python /app/lab03/currency_exchange_rate.py --from MDL --to USD --date "$(date -d '7 days ago' +\%Y-\%m-\%d)" --base-url "$API_BASE_URL" >> /var/log/cron.log 2>&1
+
